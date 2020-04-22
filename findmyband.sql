@@ -7,9 +7,9 @@
 
 CREATE TABLE `group` (
     `id` int  NOT NULL ,
-    `name` varchar  NOT NULL ,
-    `email` varchar  NOT NULL ,
-    `description` text  NOT NULL ,
+    `name` varchar(255)  NOT NULL ,
+    `email` varchar(255)  NOT NULL ,
+    `description` TEXT ,
     `city_id` int  NOT NULL ,
     PRIMARY KEY (
         `id`
@@ -18,10 +18,10 @@ CREATE TABLE `group` (
 
 CREATE TABLE `musician` (
     `id` int  NOT NULL ,
-    `pseudo` varchar  NOT NULL ,
-    `email` varchar  NOT NULL ,
+    `pseudo` varchar(200)  NOT NULL ,
+    `email` varchar(255)  NOT NULL ,
     `city` varchar(100)  NOT NULL ,
-    `description` text  NOT NULL ,
+    `description` TEXT ,
     `city_id` int  NOT NULL ,
     PRIMARY KEY (
         `id`
@@ -30,7 +30,7 @@ CREATE TABLE `musician` (
 
 CREATE TABLE `city` (
     `id` int  NOT NULL ,
-    `name` varchar  NOT NULL ,
+    `name` varchar(255)  NOT NULL ,
     PRIMARY KEY (
         `id`
     )
