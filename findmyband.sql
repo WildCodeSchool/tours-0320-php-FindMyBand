@@ -45,7 +45,7 @@ CREATE TABLE `mastery_levels` (
 );
 
 CREATE TABLE `instrument` (
-    `id` int  NOT NULL ,
+    `id` int  NOT NULL AUTO_INCREMENT,
     `name` varchar(100)  NOT NULL ,
     PRIMARY KEY (
         `id`
