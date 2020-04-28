@@ -1,0 +1,13 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+    <h1>Liste des instruments</h1>
+    <ul>
+        {% for instrument in instruments %}
+            <li>{{ instrument.name }} (id = {{ instrument.id }})</li>
+        {% else %}
+            <li>Aucun instrument pour l'instant</li>
+        {% endfor %}
+    </ul>
+    <a href="/instrument/add">Ajouter un instrument</a>
+{% endblock %}
