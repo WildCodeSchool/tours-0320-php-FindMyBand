@@ -1,0 +1,22 @@
+<form method="post">
+    {% if errors.name is not empty %}
+    <p> {{ errors.name }} </p>
+    {% endif %}
+    <label for ="name">nom du groupe</label>
+    <input id="name" type="text" name="name" value="{{ group.name }}">
+    <br>
+
+     {% if errors.email is not empty %}
+    <p> {{ errors.email }} </p>
+    {% endif %}
+    <label for="email">Votre adresse mail</label>
+    <input id="email" type="email" name="email" value="{{ group.email }}">
+    <br>
+    <label for="city"> choisissez votre ville</label>
+    <select id="city" name="city">
+    {% for city in cities %}
+        <option value="{{ city.id }}">{{ city.name }}</option>
+    {% endfor %}
+    </select>
+    <input type="submit" value="Valider">
+</form>
