@@ -12,7 +12,7 @@ CREATE TABLE `group` (
     `name` varchar(255)  NOT NULL ,
     `email` varchar(255)  NOT NULL ,
     `description` TEXT  NOT NULL ,
-    `password` int  NOT NULL ,
+    `password` varchar(255)   NOT NULL ,
     `city_id` int  NOT NULL ,
     PRIMARY KEY (
         `id`
@@ -22,7 +22,7 @@ CREATE TABLE `group` (
 CREATE TABLE `musician` (
     `id` int AUTO_INCREMENT NOT NULL ,
     `pseudo` varchar(200)  NOT NULL ,
-    `password` int  NOT NULL ,
+    `password` varchar(255)   NOT NULL ,
     `email` varchar(255)  NOT NULL ,
     `description` TEXT  NULL ,
     `city_id` int  NOT NULL ,
