@@ -1,15 +1,18 @@
-﻿-- Exported from QuickDBD: https://www.quickdatabasediagrams.com/
--- Link to schema: https://app.quickdatabasediagrams.com/#/d/5ONigW
+-- Exported from QuickDBD: https://www.quickdatabasediagrams.com/
 -- NOTE! If you have used non-SQL datatypes in your design, you will have to change these here.
 
+-- Exported from QuickDBD: https://www.quickdatabasediagrams.com/
+-- Link to schema: https://app.quickdatabasediagrams.com/
+-- NOTE! If you have used non-SQL datatypes in your design, you will have to change these here.
 -- Exported from QuickDBD: https://www.quickdatabasediagrams.com/
 -- NOTE! If you have used non-SQL datatypes in your design, you will have to change these here.
 
 CREATE TABLE `group` (
-    `id` int  NOT NULL ,
+    `id` int AUTO_INCREMENT NOT NULL ,
     `name` varchar(255)  NOT NULL ,
     `email` varchar(255)  NOT NULL ,
-    `description` TEXT ,
+    `description` TEXT  NOT NULL ,
+    `password` varchar(255)   NOT NULL ,
     `city_id` int  NOT NULL ,
     PRIMARY KEY (
         `id`
@@ -17,11 +20,11 @@ CREATE TABLE `group` (
 );
 
 CREATE TABLE `musician` (
-    `id` int  NOT NULL ,
+    `id` int AUTO_INCREMENT NOT NULL ,
     `pseudo` varchar(200)  NOT NULL ,
+    `password` varchar(255)   NOT NULL ,
     `email` varchar(255)  NOT NULL ,
-    `city` varchar(100)  NOT NULL ,
-    `description` TEXT ,
+    `description` TEXT  NULL ,
     `city_id` int  NOT NULL ,
     PRIMARY KEY (
         `id`
@@ -29,7 +32,7 @@ CREATE TABLE `musician` (
 );
 
 CREATE TABLE `city` (
-    `id` int  NOT NULL ,
+    `id` int AUTO_INCREMENT NOT NULL ,
     `name` varchar(255)  NOT NULL ,
     PRIMARY KEY (
         `id`
@@ -37,7 +40,7 @@ CREATE TABLE `city` (
 );
 
 CREATE TABLE `mastery_levels` (
-    `id` int  NOT NULL ,
+    `id` int AUTO_INCREMENT NOT NULL ,
     `level` varchar(50)  NOT NULL ,
     PRIMARY KEY (
         `id`
@@ -45,7 +48,7 @@ CREATE TABLE `mastery_levels` (
 );
 
 CREATE TABLE `instrument` (
-    `id` int  NOT NULL AUTO_INCREMENT,
+    `id` int AUTO_INCREMENT NOT NULL ,
     `name` varchar(100)  NOT NULL ,
     PRIMARY KEY (
         `id`
@@ -59,10 +62,13 @@ CREATE TABLE `instrument_played` (
 );
 
 CREATE TABLE `search` (
-    `id` int  NOT NULL ,
+    `id` int AUTO_INCREMENT NOT NULL ,
     `instrument_id` int  NOT NULL ,
     `group_id` int  NOT NULL ,
-    `mastery_levels_id` int  NOT NULL 
+    `mastery_levels_id` int  NOT NULL ,
+    PRIMARY KEY (
+        `id`
+    )
 );
 
 ALTER TABLE `group` ADD CONSTRAINT `fk_group_city_id` FOREIGN KEY(`city_id`)
@@ -88,4 +94,3 @@ REFERENCES `group` (`id`);
 
 ALTER TABLE `search` ADD CONSTRAINT `fk_search_mastery_levels_id` FOREIGN KEY(`mastery_levels_id`)
 REFERENCES `mastery_levels` (`id`);
-
