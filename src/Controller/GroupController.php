@@ -22,7 +22,9 @@ class GroupController extends AbstractController
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             //$groupManager = new GroupManager;
             //on vérifie que tous les champs sont présent.
-            if (\filter_has_var(INPUT_POST, "name") && \filter_has_var(INPUT_POST, "email") && \filter_has_var(INPUT_POST, "description")) {
+            if (\filter_has_var(INPUT_POST, "name") &&
+                \filter_has_var(INPUT_POST, "email") &&
+                \filter_has_var(INPUT_POST, "description")) {
                 //je valide le champ name
                 $size = \strlen($_POST["name"]);
                 if ($size < 1 || $size > 255) {
@@ -37,7 +39,6 @@ class GroupController extends AbstractController
                     $group["email"] = $_POST["email"];
                 }
                 //je valide le champ texte
-                if ()
                 //y'a t'il un champ qui n'est pas valide???
                 if (!empty($error)) {
                     return $this->twig->render(
