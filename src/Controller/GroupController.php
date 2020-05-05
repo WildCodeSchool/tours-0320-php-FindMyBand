@@ -56,6 +56,8 @@ class GroupController extends AbstractController
                 //tous les champs sont valide
             } else {
                 // Le cas où il manque des données.
+                header('Location:/');
+                return "";
             }
         } else {
             //La requete n'est pas une requete POST, j'affiche le formulaire vide.

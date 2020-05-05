@@ -20,10 +20,12 @@ class GroupManager extends AbstractManager
         );
         $statement->bindValue('name', $musician, \PDO::PARAM_STR);
         $statement->bindValue('email', $musician, \PDO::PARAM_STR);
-        $statement->bindValue('city', $musician, \PDO::PARAM_STR);
         $statement->bindValue('description', $musician, \PDO::PARAM_STR);
         $statement->bindValue('password', $musician, \PDO::PARAM_STR);
-        $statement->execute();
+        $statement->bindValue('city_id', $musician['city_id'], \PDO::PARAM_INT);  
+        if ($statement->execute()) {
+            return (int)$this->pdo->lastInsertId();
+        }
     }
     public function delete($id)
     {
