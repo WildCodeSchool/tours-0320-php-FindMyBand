@@ -12,6 +12,10 @@
     <label for="email">Votre adresse mail</label>
     <input id="email" type="email" name="email" value="{{ group.email }}">
     <br>
+    {% if errors.password is not empty %}
+    <p> {{ errors.password}} </p>
+    <label for="password">Votre mot de passe</label>
+    <input id="password" type="password" name="password" value "{{ group.password }}">
     <label for="city"> choisissez votre ville</label>
     <select id="city" name="city">
     {% for city in cities %}
