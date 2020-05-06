@@ -21,7 +21,7 @@ class GroupController extends AbstractController
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if ($group->handleRequest() === false) {
                 // Le cas où il manque des données.
-                header('Location:/');
+                header('location:/');
                 return "";
             } else {
                 if ($group->hasErrors()) {
