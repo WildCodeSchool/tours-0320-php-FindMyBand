@@ -44,7 +44,6 @@ class GroupForm
         if (\filter_has_var(INPUT_POST, "name") &&
             \filter_has_var(INPUT_POST, "description") &&
             \filter_has_var(INPUT_POST, "city")) {
-            $this->complete = true;
             $this->validateName();
             $this->validateDescription();
             $this->validateCity();
@@ -55,7 +54,7 @@ class GroupForm
 
     /*
      * Validation of the name field which is supposed to be in $_POST["name"]
-     * Validation is : 
+     * Validation is :
      * size is between 1 and 255 characters
      */
     private function validateName()
@@ -70,14 +69,15 @@ class GroupForm
 
     /*
      * Validation of the description field which is supposed to be in $_POST["description"]
-     * Validation is : 
+     * Validation is :
      * size is between 1 and 800 characters
      */
     private function validateDescription()
     {
         $size = \strlen($_POST["description"]);
         if ($size < 1 || $size > 800) {
-            $this->errorMessages["description"] = "La description de votre groupe est obligatoire mais ne peut contenir plus de 800 caractères";
+            $this->errorMessages["description"] =
+            "La description de votre groupe est obligatoire mais ne peut contenir plus de 800 caractères";
         } else {
             $this->description = $_POST["description"];
         }
@@ -85,7 +85,7 @@ class GroupForm
 
     /*
      * Validation of the city field which is supposed to be in $_POST["city"]
-     * Validation is : 
+     * Validation is :
      * it's a positive integer
      * it exists in the Database
      */
@@ -112,29 +112,23 @@ class GroupForm
         return !empty($this->errorMessages);
     }
 
-    public function getName() : string 
+    public function getName() : string
     {
         return $this->name;
     }
 
-    public function getDescription() : string 
+    public function getDescription() : string
     {
         return $this->description;
     }
 
-    public function getCityId() : ?int 
+    public function getCityId() : ?int
     {
         return $this->cityId;
-    } 
+    }
 
     public function getErrorMessages() : array
     {
         return $this->errorMessages;
     }
-
-
-
-
-
-
 }

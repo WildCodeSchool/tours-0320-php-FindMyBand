@@ -25,13 +25,13 @@ class GroupController extends AbstractController
                 return "";
             } else {
                 if ($group->hasErrors()) {
-                    // Il y a des erreurs dans le formulaire -- On affiche le formulaire avec erreurs ou valeurs préremplies
+                    // Il y a des erreurs dans le formulaire
+                    // On affiche le formulaire avec erreurs ou valeurs préremplies
                     return $this->twig->render('Group/add.html.twig', ["cities" => $cities, "group" => $group]);
                 }
                 // On traite le formulaire
 
                 // TODO !!
-
             }
         } else {
             //La requete n'est pas une requete POST, j'affiche le formulaire vide.
