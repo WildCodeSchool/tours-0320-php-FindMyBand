@@ -15,47 +15,47 @@
 <form method="post" class="formulaire">
     
     <div class="name">
-        {% if errors.name is not empty %}
-        <p> {{ errors.name }} </p>
+        {% if group.errorMessages.name is not empty %}
+        <p> {{ group.errorMessages.name }} </p>
         {% endif %}
         <label for ="name">nom du groupe</label>
-        <input id="name" type="text" name="name" value="{{ group.name }}" required="required">
+        <input id="name" type="text" name="name" value="{{ group.name }}">
     </div>
     <br>
     <div class="mail">
-        {% if errors.email is not empty %}
-        <p> {{ errors.email }} </p>
+        {% if group.errorMessages.email is not empty %}
+        <p> {{ group.errorMessages.email }} </p>
         {% endif %}
         <label for="email">Votre adresse mail</label>
-        <input id="email" type="email" name="email" value="{{ group.email }}" required="required">
+        <input id="email" type="email" name="email" value="{{ group.email }}">
     </div>
     <br>
     <div class="password">
-        {% if errors.password is not empty %}
-        <p> {{ errors.password}} </p>
+        {% if group.errorMessages.password is not empty %}
+        <p> {{ group.errorMessages.password}} </p>
         {% endif %}
         <label for="password">Votre mot de passe</label>
-        <input id="password" type="password" name="password" value "{{ group.password }}"required="required" placeholder>
+        <input id="password" type="password" name="password" value="{{ group.password }}">
     </div>
     <br>
     <div class="city">
-        {% if errors.city is not empty %}
-        <p> {{ errors.city}}
+        {% if group.errorMessages.city is not empty %}
+        <p> {{ group.errorMessages.city}} </p>
         {% endif %}
         <label for="city"> choisissez votre ville</label>
         <select id="city" name="city">
         {% for city in cities %}
-        <option value="{{ city.id }}">{{ city.name }}</option>
+            <option value="{{ city.id }}"{% if group.cityId == city.id %} selected{% endif %}>{{ city.name }}</option>
         {% endfor %}
         </select>
     </div>
     <br>
     <div class="texte">
-        {% if errors.description is not empty %}
-        <p> {{ errors.description }} </p>
+        {% if group.errorMessages.description is not empty %}
+        <p> {{ group.errorMessages.description }} </p>
         {% endif %}
         <label for="description">veuillez vous décrire</label>
-        <textarea id="description" name="description" required="required">......</textarea>
+        <textarea id="description" name="description">{{ group.description }}</textarea>
         <input type="submit" value="Valider">
     </div>
 </form>
