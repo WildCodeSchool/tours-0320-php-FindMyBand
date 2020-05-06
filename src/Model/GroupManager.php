@@ -12,25 +12,19 @@ class GroupManager extends AbstractManager
         parent::__construct(self::TABLE);
     }
 
-    public function insert($musician)
+    public function insert($group)
     {
         $statement=$this->pdo->prepare(
             "INSERT INTO". self::TABLE .
             "(`name`,`email`,`city`,desciption`, `password`) VALUES (:name, :email, :city, :description, :password)"
         );
-        $statement->bindValue('name', $musician, \PDO::PARAM_STR);
-        $statement->bindValue('email', $musician, \PDO::PARAM_STR);
-        $statement->bindValue('description', $musician, \PDO::PARAM_STR);
-        $statement->bindValue('password', $musician, \PDO::PARAM_STR);
-        $statement->bindValue('city_id', $musician['city_id'], \PDO::PARAM_INT);  
+        $statement->bindValue('name', $group, \PDO::PARAM_STR);
+        $statement->bindValue('email', $group, \PDO::PARAM_STR);
+        $statement->bindValue('description', $group, \PDO::PARAM_STR);
+        $statement->bindValue('password', $group, \PDO::PARAM_STR);
+        $statement->bindValue('city_id', $group['city_id'], \PDO::PARAM_INT);  
         if ($statement->execute()) {
             return (int)$this->pdo->lastInsertId();
         }
-    }
-    public function delete($id)
-    {
-        $statement = $this->pdo->prepare("DELETE FROM" . self::TABLE . "WHERE id=:id");
-        $statement->bindValue('id', $id, \PDO::PARAM_INT);
-        $statement->execute();
     }
 }

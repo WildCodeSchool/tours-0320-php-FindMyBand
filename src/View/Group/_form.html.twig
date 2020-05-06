@@ -1,62 +1,62 @@
-<body>
-    <header>
-        <h1>Find My Band</h1>
-        <img href="" alt="">
-    </header>
+{% extends 'layout.html.twig' %}
 
-    <div class="container">
-        <h2>Création de votre profil</h2>
-    </div>
+{% block stylesheet %}
+<link rel="stylesheet" href="../assets/css/groupe.css">
+{% endblock %}
 
-    <div class="paragraphe">
-        <p>Vous pouvez renseigner votre profil.Un profil complet permet d'accrocher plus facilement un musicien !</p>
-    </div>
+{% block content %}
 
 <form method="post" class="formulaire">
-    
-    <div class="name">
-        {% if errors.name is not empty %}
-        <p> {{ errors.name }} </p>
-        {% endif %}
-        <label for ="name">nom du groupe</label>
-        <input id="name" type="text" name="name" value="{{ group.name }}" required="required">
-    </div>
-    <br>
-    <div class="mail">
-        {% if errors.email is not empty %}
-        <p> {{ errors.email }} </p>
-        {% endif %}
-        <label for="email">Votre adresse mail</label>
-        <input id="email" type="email" name="email" value="{{ group.email }}" required="required">
-    </div>
-    <br>
-    <div class="password">
-        {% if errors.password is not empty %}
-        <p> {{ errors.password}} </p>
-        {% endif %}
-        <label for="password">Votre mot de passe</label>
-        <input id="password" type="password" name="password" value "{{ group.password }}"required="required" placeholder>
-    </div>
-    <br>
-    <div class="city">
-        {% if errors.city is not empty %}
-        <p> {{ errors.city}}
-        {% endif %}
-        <label for="city"> choisissez votre ville</label>
-        <select id="city" name="city">
-        {% for city in cities %}
-        <option value="{{ city.id }}">{{ city.name }}</option>
-        {% endfor %}
-        </select>
-    </div>
-    <br>
-    <div class="texte">
-        {% if errors.description is not empty %}
-        <p> {{ errors.description }} </p>
-        {% endif %}
-        <label for="description">veuillez vous décrire</label>
-        <textarea id="description" name="description" required="required">......</textarea>
-        <input type="submit" value="Valider">
+    <div class="moove">
+        <div class="name">
+            {% if errors.name is not empty %}
+            <p> {{ errors.name }} </p>
+            {% endif %}
+            <label for ="name">nom du groupe</label>
+            <input id="name" type="text" name="name" value="{{ group.name }}" required="required" size="60">
+        </div>
+        <br>
+        <div class="mail">
+            {% if errors.email is not empty %}
+            <p> {{ errors.email }} </p>
+            {% endif %}
+            <label for="email">Votre adresse mail</label>
+            <input id="email" type="email" name="email" value="{{ group.email }}" required="required" size="60" >
+        </div>
+        <br>
+        <div class="password">
+            {% if errors.password is not empty %}
+            <p> {{ errors.password}} </p>
+            {% endif %}
+            <label for="password">Votre mot de passe</label>
+            <input id="password" type="password" name="password" value "{{ group.password }}"required="required" placeholder size="60">
+        </div>
+        <br>
+        <div class="city">
+            {% if errors.city is not empty %}
+            <p> {{ errors.city}}
+            {% endif %}
+            <label for="city"> choisissez votre ville</label>
+            <select id="city" name="city">
+            {% for city in cities %}
+            <option value="{{ city.id }}">{{ city.name }}</option>
+            {% endfor %}
+            </select>
+        </div>
+        <br>
+        <div class="texte">
+            {% if errors.description is not empty %}
+            <p> {{ errors.description }} </p>
+            {% endif %}
+            <label for="description">veuillez vous décrire</label>
+            <textarea id="description" name="description" value"{{ group.description }}" required="required" ></textarea>
+            <br>
+        </div>
+            <input type="submit" value="Valider">
+        
     </div>
 </form>
-</body>
+{% endblock %}
+
+
+
