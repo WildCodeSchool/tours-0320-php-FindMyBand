@@ -1,12 +1,24 @@
 {% extends 'layout.html.twig' %}
 
 {% block content %}
- <div class="picture">
- </div>
-    <h1>Creation de votre groupe</h1>
-    <p>Vous pouvez renseigner votre profil. Un profil plus complet permet d'accrocher plus facilement un musicien?
+    <div class="container-fluid pic">
+    </div>
+        <div class="blocktest">
+            <div class="block">
+                <h1>Creation de votre groupe</h1>
+            </div>
+        </div>
+        <div class="blocktest-p">
+            <div class="block">
+            <p>Vous pouvez renseigner votre profil. Un profil plus complet permet d'accrocher plus facilement un musicien?</p>
+            </div>
+        </div>
+        <div class="blocktest-ab">
+            <div class="block">
+                <h2> Formulaire d'inscription</h2>
+            </div>
+        </div>
 
-    <h2> Formulaire d'inscription</h2>
-    
     {% include 'Group/_form.html.twig' %}
+
 {% endblock %}
