@@ -31,7 +31,7 @@ class GroupForm
         $this->password = "";
         $this->cityId = null;
         $this->description = "";
-        $this->errorMessages = [];
+        $this->errorMessages = [];http://localhost:8000/Group/add
     }
 
     /*
@@ -43,10 +43,16 @@ class GroupForm
     {
         if (\filter_has_var(INPUT_POST, "name") &&
             \filter_has_var(INPUT_POST, "description") &&
-            \filter_has_var(INPUT_POST, "city")) {
+            \filter_has_var(INPUT_POST, "city") &&
+            \filter_has_var(INPUT_POST, 'email') && 
+            \filter_has_var(INPUT_POST, 'password')) {
+            
             $this->validateName();
             $this->validateDescription();
             $this->validateCity();
+            $this->validateEmail();
+            $this->validatePassword();
+
             return true;
         }
         return false;
@@ -103,6 +109,26 @@ class GroupForm
         }
         $this->errorMessages["city"] = "Le choix de ville est invalide";
     }
+    private function validateEmail()
+    {
+        if (filter_input(INPUT_POST, "email", FILTER_VALIDATE_EMAIL) === false) {
+            $this->errorMessages["email"] = "Le email est invalide";
+        } else {
+            $this->email= $_POST["email"];
+        }
+    }
+
+    private function validatePassword()
+    {
+
+        //je valide le champ password
+        $size = \strlen($_POST["password"]);
+        if ($size < 1 || $size > 255) {
+            $this->errorMessages["password"] = "Le mot de passe doit faire entre 1 et 255 caractères";
+        } else {
+            $this->password = $_POST["password"];
+        }
+    }
 
     /*
      * Is there any errors during the form validation ?
@@ -125,6 +151,14 @@ class GroupForm
     public function getCityId() : ?int
     {
         return $this->cityId;
+    }
+    public function getEmail()
+    {
+        return $this->email;
+    }
+    public function getPassword()
+    {
+        return $this->password;
     }
 
     public function getErrorMessages() : array

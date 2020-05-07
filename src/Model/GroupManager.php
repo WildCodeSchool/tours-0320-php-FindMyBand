@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Model;
+use App\Model\GroupForm;
 
 class GroupManager extends AbstractManager
 {
@@ -12,17 +13,17 @@ class GroupManager extends AbstractManager
         parent::__construct(self::TABLE);
     }
 
-    public function insert($group)
+    public function insert(GroupForm $group): int
     {
         $statement=$this->pdo->prepare(
             "INSERT INTO". self::TABLE .
-            "(`name`,`email`,`city`,desciption`, `password`) VALUES (:name, :email, :city, :description, :password)"
+            "(`name`,`email`,`city_id`,desciption`, `password`) VALUES (:name, :email, :city_id, :description, :password)"
         );
-        $statement->bindValue('name', $group, \PDO::PARAM_STR);
-        $statement->bindValue('email', $group, \PDO::PARAM_STR);
-        $statement->bindValue('description', $group, \PDO::PARAM_STR);
-        $statement->bindValue('password', $group, \PDO::PARAM_STR);
-        $statement->bindValue('city_id', $group['city_id'], \PDO::PARAM_INT);  
+        $statement->bindValue('name', $group->getName(), \PDO::PARAM_STR);
+        $statement->bindValue('email', $group->getEmail(), \PDO::PARAM_STR);
+        $statement->bindValue('description', $group->getDescription(), \PDO::PARAM_STR);
+        $statement->bindValue('password', $group->getPassword(), \PDO::PARAM_STR);
+        $statement->bindValue('city_id', $group->getCityId(), \PDO::PARAM_INT);  
         if ($statement->execute()) {
             return (int)$this->pdo->lastInsertId();
         }
