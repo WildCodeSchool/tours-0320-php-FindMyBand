@@ -32,49 +32,13 @@ class GroupController extends AbstractController
                 // On traite le formulaire
 
                 // TODO !!
+                $groupManager = new GroupManager();
+                $groupManager->insert($group);
             }
         } else {
             //La requete n'est pas une requete POST, j'affiche le formulaire vide.
             return $this->twig->render('Group/add.html.twig', ["cities" => $cities]);
         }
     }
-    public function addConect()
-    {
-        //On initialise le tableau des erreurs.
-        $error = [];
-        //on initialise le tableau groupe.
-        $group = [];
-        // Si la requête est POST, je traite le formulaire
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            if (\filter_has_var(INPUT_POST, "email") &&
-               \filter_has_var(INPUT_POST, "password")) {
-                //je valide le champ email
-                if (filter_input(INPUT_POST, "email", FILTER_VALIDATE_EMAIL) === false) {
-                    $error["email"] = "l'adresse mail n'est pas valide";
-                } else {
-                    $group["email"] = $_POST["email"];
-                }
-                 //je valide le champ password
-                 $size = \strlen($_POST["name"]);
-                if ($size < 1 || $size > 255) {
-                    $error["password"] = "Le mot de passe doit faire entre 1 et 255 caractères";
-                } else {
-                    $group["password"] = $_POST["password"];
-                }
-                //y'a til un champ qui n'est pas valide?
-                if (!empty($error)) {
-                    return $this->twig->render(
-                        "Group/add.html.twig",
-                        ["errors" => $error, "group" => $group]
-                    );
-                }
-            } else {
-                //tous les champs sont valide.
-                return $this->twig->render('Group/profil.html.twig');
-            }
-        } else {
-             //La requete n'est pas une requete POST, j'affiche le formulaire vide.
-             return $this->twig->render('Group/add.html.twig');
-        }
-    }
+    
 }

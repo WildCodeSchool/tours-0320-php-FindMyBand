@@ -10,7 +10,7 @@
 .blocktest{
     font-size: 30px;
     display: flex;
-    background-color: rgb(82, 79, 79);
+    background: linear-gradient( #562936 ,  #f48373  );
     color: rgb(10, 22, 128);
 }
 .block{
@@ -20,7 +20,7 @@
 .blocktest-p{
     font-size: 26px;
     display: flex;
-    background-color: rgb(92, 76, 76);
+    background: linear-gradient( #562936 ,  #f48373  );
     color: rgb(10, 22, 128);
 }
 h2{
@@ -29,11 +29,11 @@ h2{
 }
 .formulaire{
     display: flex;
-    background: linear-gradient( #562936 ,  #f48373  );;
+    background: linear-gradient( #562936 ,  #f48373  );
 }
 .blocktest-ab{
     display: flex;
-    background-color: rgb(201, 191, 191);
+    background: linear-gradient( #562936 ,  #f48373  );
     color: rgb(10, 22, 128);
 }
 .container{

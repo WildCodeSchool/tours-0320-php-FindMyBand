@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Model;
+
 use App\Model\GroupForm;
 
 class GroupManager extends AbstractManager
@@ -17,13 +18,14 @@ class GroupManager extends AbstractManager
     {
         $statement=$this->pdo->prepare(
             "INSERT INTO". self::TABLE .
-            "(`name`,`email`,`city_id`,desciption`, `password`) VALUES (:name, :email, :city_id, :description, :password)"
+            "(`name`,`email`,`city_id`,desciption`, `password`) 
+            VALUES (:name, :email, :city_id, :description, :password)"
         );
         $statement->bindValue('name', $group->getName(), \PDO::PARAM_STR);
         $statement->bindValue('email', $group->getEmail(), \PDO::PARAM_STR);
         $statement->bindValue('description', $group->getDescription(), \PDO::PARAM_STR);
         $statement->bindValue('password', $group->getPassword(), \PDO::PARAM_STR);
-        $statement->bindValue('city_id', $group->getCityId(), \PDO::PARAM_INT);  
+        $statement->bindValue('city_id', $group->getCityId(), \PDO::PARAM_INT);
         if ($statement->execute()) {
             return (int)$this->pdo->lastInsertId();
         }

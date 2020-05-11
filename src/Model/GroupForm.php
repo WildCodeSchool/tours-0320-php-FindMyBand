@@ -44,9 +44,8 @@ class GroupForm
         if (\filter_has_var(INPUT_POST, "name") &&
             \filter_has_var(INPUT_POST, "description") &&
             \filter_has_var(INPUT_POST, "city") &&
-            \filter_has_var(INPUT_POST, 'email') && 
+            \filter_has_var(INPUT_POST, 'email') &&
             \filter_has_var(INPUT_POST, 'password')) {
-            
             $this->validateName();
             $this->validateDescription();
             $this->validateCity();
