@@ -1,3 +1,6 @@
+body{
+    background: linear-gradient( #562936 ,  #f48373  );
+}
 .pic{
     background-image: url(../images/image.jpg);
     padding-top: 4px;
@@ -10,7 +13,7 @@
 .blocktest{
     font-size: 30px;
     display: flex;
-    background: linear-gradient( #562936 ,  #f48373  );
+    
     color: rgb(10, 22, 128);
 }
 .block{
@@ -20,7 +23,7 @@
 .blocktest-p{
     font-size: 26px;
     display: flex;
-    background: linear-gradient( #562936 ,  #f48373  );
+    
     color: rgb(10, 22, 128);
 }
 h2{
@@ -29,11 +32,11 @@ h2{
 }
 .formulaire{
     display: flex;
-    background: linear-gradient( #562936 ,  #f48373  );
+    
 }
 .blocktest-ab{
     display: flex;
-    background: linear-gradient( #562936 ,  #f48373  );
+    
     color: rgb(10, 22, 128);
 }
 .container{

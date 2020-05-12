@@ -15,7 +15,6 @@
         <label for ="name">nom du groupe</label>
         <input id="name" type="text" name="name" value="{{ group.name }}">
     </div>
-    <br>
     <div class="mail">
         {% if group.errorMessages.email is not empty %}
         <p> {{ group.errorMessages.email }} </p>
@@ -31,7 +30,6 @@
         <label for="password">Votre mot de passe</label>
         <input id="password" type="password" name="password" value="{{ group.password }}">
     </div>
-    <br>
     <div class="city">
         {% if group.errorMessages.city is not empty %}
         <p> {{ group.errorMessages.city}} </p>
@@ -43,7 +41,6 @@
         {% endfor %}
         </select>
     </div>
-    <br>
     <div class="texte">
         {% if group.errorMessages.description is not empty %}
         <p> {{ group.errorMessages.description }} </p>

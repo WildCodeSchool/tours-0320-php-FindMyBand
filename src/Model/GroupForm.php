@@ -1,6 +1,6 @@
 <?php
 /**
- * User: Romain
+ * User: kevin
  * Date: 06/05/20
  */
 
@@ -31,7 +31,7 @@ class GroupForm
         $this->password = "";
         $this->cityId = null;
         $this->description = "";
-        $this->errorMessages = [];http://localhost:8000/Group/add
+        $this->errorMessages = [];
     }
 
     /*
@@ -151,11 +151,11 @@ class GroupForm
     {
         return $this->cityId;
     }
-    public function getEmail()
+    public function getEmail() : string
     {
         return $this->email;
     }
-    public function getPassword()
+    public function getPassword() : string
     {
         return $this->password;
     }

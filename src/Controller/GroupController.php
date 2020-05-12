@@ -34,11 +34,11 @@ class GroupController extends AbstractController
                 // TODO !!
                 $groupManager = new GroupManager();
                 $groupManager->insert($group);
+                return $this->twig->render('Group/profil.html.twig');
             }
         } else {
             //La requete n'est pas une requete POST, j'affiche le formulaire vide.
             return $this->twig->render('Group/add.html.twig', ["cities" => $cities]);
         }
     }
-    
 }
