@@ -1,0 +1,8 @@
+<form method="post">
+    {% if error is not empty %}
+        <p>{{ error }}</p>
+    {% endif %}
+    <input type="hidden" value="{{ instrument.id }}" name="id">
+    <input type="text" value="{{ instrument.name }}" name="name">
+    <input type="submit" value="Valider">
+</form>

@@ -1,0 +1,71 @@
+{% extends 'layout.html.twig' %}
+{% block stylesheet %}
+<link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+     
+ {% endblock %}
+{% block content %}
+
+<body class="body">
+
+
+
+
+<nav class="navbar sticky-top navbar-dark bg-dark">
+<a class="flex-sm-fill text-sm-center nav-link disabled" href="#" tabindex="-1" aria-disabled="true">FIND MY BAND</a>
+  <a class="flex-sm-fill text-sm-center nav-link" href="../Home/index">Accueil</a>
+  <a class="flex-sm-fill text-sm-center nav-link" href="#">Inscription</a>
+  <a class="flex-sm-fill text-sm-center nav-link" href="#">Connexion</a>
+</nav>
+
+
+
+<div class="title.contact">
+<h1> Contactez nous</h1>
+</div>
+
+
+
+<div class="container-fluid submit">
+
+<form action="" method="POST">
+  
+    <label class="required" for="name">Votre nom:</label><br />
+    <input id="name" class="input" name="name" type="text" value="" size="30" /><br />
+    <span id="name_validation" class="error_message"></span>
+  
+
+  
+    <label class="required" for="email">Votre e-mail:</label><br />
+    <input id="email" class="input" name="email" type="text" value="" size="30" /><br />
+    <span id="email_validation" class="error_message"></span>
+  
+
+  
+    <label class="required" for="message">Votre message:</label><br />
+    <textarea id="message" class="input" name="message" rows="7" cols="30"></textarea><br />
+    <span id="message_validation" class="error_message"></span>
+  
+    
+    <input id="submit_button" type="submit" value="Envoyer" />
+</form>
+</div>
+
+
+
+<!--footer-->
+  <footer>
+      <div class="card text-center text-white bg-dark mb-3">
+        <div class="card-header">
+          Find My Band
+        </div>
+        <div class="card-body">
+          <p class="card-text">FAQ</p>
+          <p class="card-text">Mentions légales</p>
+          <p class="card-text">Conditions d'utilisations</p>
+          <a href="Contact/index" class="btn btn-primary">Contactez nous</a>
+        </div>
+      </div>
+  </footer>
+</body>
+{% endblock %}

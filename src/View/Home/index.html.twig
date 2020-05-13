@@ -1,5 +1,112 @@
 {% extends 'layout.html.twig' %}
-
+{% block stylesheet %}
+<link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+     
+ {% endblock %}
 {% block content %}
-    <h1>Hello Wilder !</h1>
+   
+    <body class="body">
+
+   
+   
+     <!-- Navbar -->
+<nav class="navbar sticky-top navbar-dark bg-dark">
+<a class="flex-sm-fill text-sm-center nav-link disabled" href="#" tabindex="-1" aria-disabled="true">FIND MY BAND</a>
+  <a class="flex-sm-fill text-sm-center nav-link" href="../Home/index">Accueil</a>
+  <a class="flex-sm-fill text-sm-center nav-link" href="#">Inscription</a>
+  <a class="flex-sm-fill text-sm-center nav-link" href="#">Connexion</a>
+</nav>
+
+ <!--Photo-->
+    <div class="container-fluid pic">
+    </div>
+    
+ <!--bandeau texte-->
+    <div class="container-fluid header-ctn">
+      <p> Vous êtes un musicien et vous cherchez un groupe ?</p>
+      <p> Ou vice versa?</p>
+      <p> Inscrivez vous et renseignez votre profil !</p>
+      <p> Nous nous chargeons de trouver le groupe ou le musicien de vos rêves !</p>
+    </div>
+
+
+    <div class="container">
+      <div class="row">
+        <div class="col-6 offset-4">
+          <button type="button" class="btn btn-danger">INSCRIVEZ VOUS GRATUITEMENT</button>
+        </div>
+      </div>
+    </div>
+
+
+
+
+<!--annonces-->
+<div class=" container-fluid annonces">
+      <div class="row row-cols-1 row-cols-md-4">
+    <div class="col mb-4">
+      <div class="card text-white bg-dark mb-3">
+        <div class="card-header">Nouvelle annonce</div>
+        <div class="card-body">
+          <h5 class="card-title">NOM DU GROUPE</h5>
+          <p class="card-text">Ici la description de l'annonce.Ici la description de l'annonce.Ici la description de l'annonce.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col mb-4">
+    <div class="card text-white bg-dark mb-3">
+        <div class="card-header">Nouvelle annonce</div>
+        <div class="card-body">
+          <h5 class="card-title">NOM DU GROUPE</h5>
+          <p class="card-text">Ici la description de l'annonce.Ici la description de l'annonce.Ici la description de l'annonce.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col mb-4">
+      <div class="card text-white bg-dark mb-3">
+        <div class="card-header">Nouvelle annonce</div>
+        <div class="card-body">
+          <h5 class="card-title">NOM DU GROUPE</h5>
+          <p class="card-text">Ici la description de l'annonce.Ici la description de l'annonce.Ici la description de l'annonce.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col mb-4">
+      <div class="card text-white bg-dark mb-3">
+        <div class="card-header">Nouvelle annonce</div>
+        <div class="card-body">
+          <h5 class="card-title">NOM DU GROUPE</h5>
+          <p class="card-text">Ici la description de l'annonce.Ici la description de l'annonce.Ici la description de l'annonce.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--footer-->
+  <footer>
+      <div class="card text-center text-white bg-dark mb-3">
+        <div class="card-header">
+          Find My Band
+        </div>
+        <div class="card-body">
+          <p class="card-text">FAQ</p>
+          <p class="card-text">Mentions légales</p>
+          <p class="card-text">Conditions d'utilisations</p>
+          <a href="../Contact/index" class="btn btn-primary">Contactez nous</a>
+        </div>
+      </div>
+  </footer>
+
+
+
+</div>
+</div>
+
+</body>
+<link rel="stylesheet" href="../assets/js/bootstrap.min.js">
 {% endblock %}
