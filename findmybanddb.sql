@@ -56,9 +56,13 @@ CREATE TABLE `instrument` (
 );
 
 CREATE TABLE `instrument_played` (
+     `id` int AUTO_INCREMENT NOT NULL ,
     `instrument_id` int  NOT NULL ,
     `musician_id` int  NOT NULL ,
     `mastery_levels_id` int  NOT NULL 
+    PRIMARY KEY (
+        `id`
+    )
 );
 
 CREATE TABLE `search` (
