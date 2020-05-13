@@ -17,7 +17,7 @@ use App\Model\MusicianForm;
 /**
  *
  */
-class InstrumentPlayedManager extends AbstractManager
+class InstrumentplayedManager extends AbstractManager
 {
     /**
      *
@@ -34,15 +34,13 @@ class InstrumentPlayedManager extends AbstractManager
 
 
     /**
-     * @param int $instrument_played
      * @return int
      */
-    public function insert(int $masteryId, int $instrumentId, int $musicianId) : int
+    public function insert(int $masteryId, int $instrumentId, int $musicianId):int
     {
         $statement = $this->pdo->prepare(
-            "INSERT INTO " .
-             self::TABLE . " (`mastery_levels_id`,`instrument_id`,`musician_id`)
-          VALUES (:mastery_levels_id,:instrument_id,:musician_id)"
+            "INSERT INTO " . self::TABLE . " (`mastery_levels_id`,`instrument_id`,`musician_id`)
+            VALUES (:mastery_levels_id,:instrument_id,:musician_id)"
         );
         $statement->bindValue('mastery_levels_id', $masteryId, \PDO::PARAM_INT);
         $statement->bindValue('instrument_id', $instrumentId, \PDO::PARAM_INT);
