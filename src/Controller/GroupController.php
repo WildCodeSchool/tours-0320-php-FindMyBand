@@ -47,7 +47,9 @@ class GroupController extends AbstractController
     {
         $groupManager = new GroupManager();
         $group = $groupManager->selectOneById($id);
+        $cityManager = new CityManager();
+        $cities = $cityManager->selectAll();
 
-        return $this->twig->render('Group/profil.html.twig', ["group"=>$group]);
+        return $this->twig->render('Group/profil.html.twig', ["group"=>$group, "cities" => $cities]);
     }
 }
