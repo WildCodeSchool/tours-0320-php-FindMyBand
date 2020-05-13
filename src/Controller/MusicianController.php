@@ -11,7 +11,7 @@ namespace App\Controller;
 use App\Model\MusicianManager;
 use App\Model\CityManager;
 use App\Model\MusicianForm;
-use App\Model\Mastery_levelManager;
+use App\Model\MasteryLevelManager;
 use App\Model\InstrumentManager;
 use App\Model\InstrumentPlayedManager;
 
@@ -88,7 +88,7 @@ class MusicianController extends AbstractController
         $instruments = $instrumentManager->selectAll();
         $musicianManager = new MusicianManager();
         $musician=$musicianManager->selectOneById($id);
-        $masteryManager= new Mastery_levelManager();
+        $masteryManager= new MasteryLevelManager();
         $masteries=$masteryManager->selectAll();
          return $this->twig->render(
              'Musician/profil.html.twig',
