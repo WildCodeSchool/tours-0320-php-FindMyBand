@@ -55,7 +55,7 @@ class InstrumentController extends AbstractController
                 }
                 $instrument["name"] = $_POST["name"];
                 $instrumentManager->insert($instrument);
-                header('Location:/instrument/index/');
+                header('Location:/');
                 return "";
             }
             // I don't have the field requeted
