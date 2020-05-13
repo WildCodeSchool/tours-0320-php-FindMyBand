@@ -14,6 +14,11 @@ class GroupManager extends AbstractManager
         parent::__construct(self::TABLE);
     }
 
+    public function selectOneByIdWithCity(int $id)
+    {
+        //prepare request
+        $statement->$this->pdo->prepare("SELECT "city_id" AS )
+    }
     public function insert(GroupForm $group): int
     {
         $statement=$this->pdo->prepare(
