@@ -12,53 +12,45 @@
 
 <body class="bg">
     <div class="logo">
-    <h1> Bienvenu {{ group.name}} </h1>
+    <h1> Bienvenue {{ group.name}} </h1>
         <p>{{ group.email}} </p>
     </div>
     <div class="pr">
-    <h1> Vous pouvez renseignez Votre instrument </h1>
-    <h1>Votre niveau de maitrise</h1>
-    <h4>Pour trouver le meilleur group</h4>
+      <p>Bienvenue sur votre espace personnel. Dans se lieu, vous pouvez déposer une annonce avec un/des instrument(s)</p>
+      <p>Pour cela, vous pouvez sélectionner un ou plusieurs instrument ainsi que le niveau de maitrise que vous recherché</p>
+      <p>Vous pouvez aussi si vous le souhaitez, écrire un petit texte sur le profil de musicien recherché ou un descriptif sur votre groupe</p>
     </div> 
+    <div class="col-12 col-md-8">
+            <p>Votre nom : {{ group.name }}</p>
+            <p>Votre adresse mail : {{ group.email }}</p>
+            <p>Votre ville: {{ group.city }}</p>
+            <p>votre description : {{ group.description }}</p>
+        </div>
     <form method="post">
-    <div class="info">
-        <label for="mastery">Votre niveau de maitrise</label>
+      <div class="info">
+        <label for="mastery">niveau de maitrise recherché.</label>
         <select id="mastery" name="mastery">
         <option value="">  </option>
             {% for mastery in masteries %}
             <option value="{{ mastery.id }}">{{ mastery.level }}</option>
+            {% endfor %}
+        </select>
+      </div>
+      <div class="instrement">
+      {% for instrument in instruments %}
+      <label for="instrument">Votre instruments</label>
+      <select id="instrument">
+      <option value="{{ instrument.id }}">{{ instrument.name }}</option>
+      {% endfor %}
+        </select>
+      </div>
+      <div class="ajouter">
+        <a href="/instrument/add/{{ musician.id}}">Ajouter un instrument</a>
+      </div>
+      <input type="submit" value="Valider">
+    </form>
 
- {% endfor %}
 
-</select>
-
-  <input type="submit" value="Valider">
-
-</div>
-
-<div class="instrement">
-
- {% for instrument in instruments %}
-
-<label for="instrument">Votre instruments</label>
-
-<select id="instrument">
-
-  <option value="{{ instrument.id }}">{{ instrument.name }}</option>
-
-     {% endfor %}
-
-</select>
-
-</div>
-
-</form>
-
-<div class="ajouter">
-
-<a href="/instrument/add/{{ musician.id}}">Ajouter un instrument</a>
-
-</div>
 
 </body>
 
