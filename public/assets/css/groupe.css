@@ -1,0 +1,68 @@
+body{
+    background: linear-gradient( #562936 ,  #f48373  );
+}
+.pic{
+    background-image: url(../images/image.jpg);
+    padding-top: 4px;
+	object-fit: cover;
+	width: 100%;
+	height: 350px;
+    width: 100%;
+    width: 100%;
+}
+.blocktest{
+    font-size: 30px;
+    display: flex;
+    
+    color: rgb(10, 22, 128);
+}
+.block{
+    margin-left: auto;
+   margin-right: auto;
+}
+.blocktest-p{
+    font-size: 26px;
+    display: flex;
+    
+    color: rgb(10, 22, 128);
+}
+h2{
+    font-size: 30px;
+    text-shadow: 5px 5px 5px 5px black;
+}
+.formulaire{
+    display: flex;
+    
+}
+.blocktest-ab{
+    display: flex;
+    
+    color: rgb(10, 22, 128);
+}
+.container{
+    margin-left: auto;
+   margin-right: auto;
+   border: 5px solid black;
+   background-color: chocolate;
+}
+.name{
+    font-size: 25px;
+    text-decoration: underline black;
+}
+.mail{
+    font-size: 25px;
+    text-decoration: underline black;
+}
+.password{
+    font-size: 25px;
+    text-decoration: underline black;
+
+}
+.city{
+    font-size: 25px;
+    text-decoration: underline black;
+}
+.texte{
+    font-size: 25px;
+    text-decoration: underline black;
+}
