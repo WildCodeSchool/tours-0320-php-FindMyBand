@@ -6,21 +6,21 @@
 
 {% block content %}
 
-<form  method="post" action="profil.html.twig" class="formulaire">
+<form  method="post"  class="formulaire">
 <div class="container">
     <div class="name">
         {% if group.errorMessages.name is not empty %}
         <p> {{ group.errorMessages.name }} </p>
         {% endif %}
         <label for ="name">nom du groupe</label>
-        <input id="name" type="text" name="name" value="{{ group.name }}">
+        <input id="name" type="text" name="name" value="{{ group.name }}" required="required">
     </div>
     <div class="mail">
         {% if group.errorMessages.email is not empty %}
         <p> {{ group.errorMessages.email }} </p>
         {% endif %}
         <label for="email">Votre adresse mail</label>
-        <input id="email" type="email" name="email" value="{{ group.email }}">
+        <input id="email" type="email" name="email" value="{{ group.email }}" required="required">
     </div>
     <br>
     <div class="password">
@@ -28,14 +28,14 @@
         <p> {{ group.errorMessages.password}} </p>
         {% endif %}
         <label for="password">Votre mot de passe</label>
-        <input id="password" type="password" name="password" value="{{ group.password }}">
+        <input id="password" type="password" name="password" value="{{ group.password }}" required="required">
     </div>
     <div class="city">
         {% if group.errorMessages.city is not empty %}
         <p> {{ group.errorMessages.city}} </p>
         {% endif %}
         <label for="city"> choisissez votre ville</label>
-        <select id="city" name="city">
+        <select id="city" name="city" required="required">
         {% for city in cities %}
             <option value="{{ city.id }}"{% if group.cityId == city.id %} selected{% endif %}>{{ city.name }}</option>
         {% endfor %}
@@ -46,7 +46,7 @@
         <p> {{ group.errorMessages.description }} </p>
         {% endif %}
         <label for="description">veuillez vous décrire</label>
-        <textarea id="description" name="description">{{ group.description }}</textarea>
+        <textarea id="description" name="description" required="required">{{ group.description }}</textarea>
         <input type="submit" value="Valider">
     </div>
 </div>

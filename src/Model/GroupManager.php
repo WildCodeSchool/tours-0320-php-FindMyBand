@@ -7,7 +7,7 @@ use App\Model\GroupForm;
 class GroupManager extends AbstractManager
 {
 
-    const  TABLE = 'group';
+    const  TABLE = '`group`';
 
     public function __construct()
     {
@@ -17,8 +17,8 @@ class GroupManager extends AbstractManager
     public function insert(GroupForm $group): int
     {
         $statement=$this->pdo->prepare(
-            "INSERT INTO". self::TABLE .
-            "(`name`,`email`,`city_id`,desciption`, `password`) 
+            "INSERT INTO " . self::TABLE .
+            " (`name`, `email`, `city_id`, `description`, `password`)
             VALUES (:name, :email, :city_id, :description, :password)"
         );
         $statement->bindValue('name', $group->getName(), \PDO::PARAM_STR);
