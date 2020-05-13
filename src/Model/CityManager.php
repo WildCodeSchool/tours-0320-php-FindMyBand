@@ -24,5 +24,4 @@ class CityManager extends AbstractManager
     {
         parent::__construct(self::TABLE);
     }
-    
 }
