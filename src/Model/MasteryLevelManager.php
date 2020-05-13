@@ -10,7 +10,7 @@ namespace App\Model;
 /**
  *La classe Mastery_levelManager nous permet d'interagir avec la TABLE city.
  */
-class Mastery_levelManager extends AbstractManager
+class MasteryLevelManager extends AbstractManager
 {
     /**
      *
