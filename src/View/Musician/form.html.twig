@@ -1,0 +1,47 @@
+{% extends 'layout.html.twig' %}
+{% block stylesheet %}
+<link rel="stylesheet" href="../assets/css/formmusician.css">
+  <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+     
+ {% endblock %}
+ {% block content %}
+<body class="formm">
+<form method="post">
+    {% if musician.errorMessages.pseudo is not empty %}
+        <p> {{ musician.errorMessages.pseudo }} </p>
+        {% endif %}
+    <label for ="pseudo">pseudo</label>
+    <input id="pseudo" type="text" name="pseudo" value="{{ musician.pseudo }}">
+  
+     {% if musician.errorMessages.email is not empty %}
+        <p> {{ musician.errorMessages.email }} </p>
+        {% endif %}
+    <label for="email">Votre adresse mail</label>
+    <input id="email" type="email" name="email" value="{{ musician.email }}">
+  
+  {% if musician.errorMessages.password is not empty %}
+        <p> {{ musician.errorMessages.password}} </p>
+        {% endif %}
+   
+    <label for="password">Votre mot de passe</label>
+    <input id="password" type="password" name="password" value "{{ musician.password }}">
+   
+    <label for="description">Votre description</label>
+    <textarea id="description" row='5' cols='10' name="description" value "{{ musician.description }}">
+    </textarea>
+   
+     {% if musician.errorMessages.city is not empty %}
+        <p> {{ musician.errorMessages.city}} </p>
+        {% endif %}
+    <label for="city"> choisissez votre ville</label>
+    <select id="city" name="city">
+     <option value="">  </option>
+    {% for city in cities %}
+        <option value="{{ city.id }}">{{ city.name }}</option>
+    {% endfor %}
+    </select>
+   
+    <input type="submit" value="Valider">
+</form>
+</div>
+{% endblock %}
