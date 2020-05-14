@@ -53,4 +53,3 @@ class GroupController extends AbstractController
         return $this->twig->render('Group/profil.html.twig', ["group"=>$group, "cities" => $cities]);
     }
 }
-
