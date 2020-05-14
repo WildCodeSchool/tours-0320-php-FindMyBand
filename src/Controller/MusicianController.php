@@ -38,27 +38,27 @@ class MusicianController extends AbstractController
             // password a au moins X caractères
             //je valide le champ email
             if (filter_input(INPUT_POST, "email", FILTER_VALIDATE_EMAIL) === false || empty($_POST['email'])) {
-            $errorMessages["email"] = "Le email est invalide";
-            return $this->twig->render('Musician/login.html.twig',["errorMessages"=>$errorMessages]);
+                $errorMessages["email"] = "Le email est invalide";
+                return $this->twig->render('Musician/login.html.twig', ["errorMessages"=>$errorMessages]);
             } else {
-            $user['email']= $_POST["email"];
+                $user['email']= $_POST["email"];
             }
             //je valide le champ password
             if (empty($_POST['password'])) {
-            $errorMessages['password'] = "Le mot de passe doit faire entre 1 et 255 caractères";
-            return $this->twig->render('Musician/login.html.twig',["errorMessages"=>$errorMessages]);
+                $errorMessages['password'] = "Le mot de passe doit faire entre 1 et 255 caractères";
+                return $this->twig->render('Musician/login.html.twig', ["errorMessages"=>$errorMessages]);
             } else {
-                if(\filter_has_var(INPUT_POST, "password") && isset($_POST['password'])) {
-            $user['password'] = $_POST['password'];
+                if (\filter_has_var(INPUT_POST, "password") && isset($_POST['password'])) {
+                    $user['password'] = $_POST['password'];
                 }
-            }                
+            }
             // 2. Chercher dans la BDD (table user) email correspondant à celui fourni
-            $MusicianManager = new MusicianManager();
-            $musician = $MusicianManager->selectOneByEmail($user['email']);
+            $musicianManager = new MusicianManager();
+            $musician = $musicianManager->selectOneByEmail($user['email']);
             if (!$musician) {
                 // Si on ne récupère pas d'utilisateur -> afficher une erreur
                 $errorMessages["email"] = "Le email est incorrect";
-                return $this->twig->render('Musician/login.html.twig',["errorMessages"=>$errorMessages]);
+                return $this->twig->render('Musician/login.html.twig', ["errorMessages"=>$errorMessages]);
             }
             // 4. Stocker dans la session les informations sur l'utilisateur connecté
             $_SESSION['user_id'] = $musician['id'];
@@ -68,8 +68,8 @@ class MusicianController extends AbstractController
                 'email' => $_SESSION['user_email'],
                  ];
             // 5. Rediriger l'utilisateur vers la page de profil
-            return $this->twig->render('Musician/profil.html.twig',['musician' => $musician]);
-        }   
+            return $this->twig->render('Musician/profil.html.twig', ['musician' => $musician]);
+        }
         return $this->twig->render('Musician/login.html.twig');
     }
     /**
@@ -99,7 +99,7 @@ class MusicianController extends AbstractController
                 }
                     $musicianManager = new MusicianManager();
                     //récupérer le id  musician et insérer le musicien dans la base
-                     $id =$musicianManager->insert($musician);
+                    $musicianManager->insert($musician);
                      \header("Location: /");
                     return'';
             }
