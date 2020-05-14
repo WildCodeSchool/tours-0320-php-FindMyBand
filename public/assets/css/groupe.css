@@ -14,7 +14,7 @@ body{
     font-size: 30px;
     display: flex;
     
-    color: rgb(10, 22, 128);
+    color: #6c757d;
 }
 .block{
     margin-left: auto;
@@ -24,7 +24,7 @@ body{
     font-size: 26px;
     display: flex;
     
-    color: rgb(10, 22, 128);
+    color: #6c757d;
 }
 h2{
     font-size: 30px;
@@ -37,7 +37,7 @@ h2{
 .blocktest-ab{
     display: flex;
     
-    color: rgb(10, 22, 128);
+    color: #6c757d;
 }
 .container{
     margin-left: auto;

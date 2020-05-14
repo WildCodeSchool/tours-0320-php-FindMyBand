@@ -51,17 +51,17 @@ class InstrumentController extends AbstractController
                 if ($size < 1 || $size > 100) {
                     // The size is invalid
                     $error = "Nom invalide : la taille doit être entre 1 et 100 caractères";
-                    return $this->twig->render('Instrument/add.html.twig', ["error" => $error]);
+                    return $this->twig->render('Group/add.html.twig', ["error" => $error]);
                 }
                 $instrument["name"] = $_POST["name"];
                 $instrumentManager->insert($instrument);
-                header('Location:/instrument/index/');
+                header('Location:/Group/profil/');
                 return "";
             }
             // I don't have the field requeted
             header('Location:/');
             return "";
         }
-        return $this->twig->render('Instrument/add.html.twig');
+        return $this->twig->render('Group/profil.html.twig');
     }
 }

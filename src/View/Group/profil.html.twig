@@ -1,57 +1,81 @@
 {% extends 'layout.html.twig' %}
-
 {% block stylesheet %}
-
 <link rel="stylesheet" href="../../assets/css/profil.css">
-
 <link rel="stylesheet" href="../../assets/css/bootstrap.min.css"> 
-
  {% endblock %}
-
 {% block content %}
 
-<body class="bg">
-    <div class="logo">
-    <h1> Bienvenue {{ group.name}} </h1>
-        <p>{{ group.email}} </p>
+
+<body class="body">
+
+
+  <!-- Navbar -->
+  <nav class="navbar sticky-top navbar-dark bg-dark">
+    <a class="flex-sm-fill text-sm-center nav-link disabled" href="#" tabindex="-1" aria-disabled="true">FIND MY BAND</a>
+    <a class="flex-sm-fill text-sm-center nav-link" href="../Home/index">Accueil</a>
+    <a class="flex-sm-fill text-sm-center nav-link" href="../Group/add">Inscription</a>
+    <a class="flex-sm-fill text-sm-center nav-link" href="#">Connexion</a>
+  </nav>
+
+   <!--Photo-->
+    <div class="container-fluid pic">
     </div>
-    <div class="pr">
-      <p>Bienvenue sur votre espace personnel. Dans se lieu, vous pouvez déposer une annonce avec un/des instrument(s)</p>
-      <p>Pour cela, vous pouvez sélectionner un ou plusieurs instrument ainsi que le niveau de maitrise que vous recherché</p>
-      <p>Vous pouvez aussi si vous le souhaitez, écrire un petit texte sur le profil de musicien recherché ou un descriptif sur votre groupe</p>
-    </div> 
-    <div class="col-12 col-md-8">
-            <p>Votre nom : {{ group.name }}</p>
-            <p>Votre adresse mail : {{ group.email }}</p>
-            <p>Votre ville: {{ group.city }}</p>
-            <p>votre description : {{ group.description }}</p>
+
+  <div class="title-profil">
+    <h1> Mon profil de Groupe</h1>
+  </div>
+
+  <div class="header-ctn">
+    <div class="card text-white bg-dark mb-3">
+      <p class="card-text"><p>Bienvenue {{ group.name }} ! Vous pouvez être contacté(e) à l'adresse :{{ group.email}} </p>
+    </div>
+  </div>
+
+  <div class="txt_profil">
+    <h4> Renseignez votre profil afin que FIND MY BAND vous trouve le musicien de vos rêves ! </h4>
+  </div> 
+
+
+<div class="form_profil">
+  <form method="post">
+    
+      <label for="mastery">Niveau de maitrise souhaité</label>
+      <select id="mastery" name="mastery">
+      <option value="">  </option>
+          {% for mastery in masteries %}
+          <option value="{{ mastery.id }}">{{ mastery.level }}</option>
+          {% endfor %}
+      </select>
+      <label for="instrument">Instrument souhaité</label>
+      <select id="instrument" name="instrument">
+      <option value="">  </option>
+        {% for instrument in instruments %}
+        <option value="{{ instrument.id }}">{{ instrument.name }}</option>
+        {% endfor %}
+         </select>
+         <input type="submit" value="Valider">
+       
+  </form>
+</div>
+
+  <div class="ajout_profil">
+    <a href="/instrument/add/{{ musician.id }}">Ajouter un instrument</a>
+  </div>
+ 
+
+  <!--footer-->
+  <div class="footer">
+    <footer>
+        <div class="card text-center text-white bg-dark mb-3">
+          <div class="card-header">
+            Find My Band
+          </div>
+          <div class="card-body">
+            <p class="card-text">FAQ</p>
+            <p class="card-text">Mentions légales</p>
+            <p class="card-text">Conditions d'utilisations</p>
+            <a href="../Contact/index" class="btn btn-primary">Contactez nous</a>
+          </div>
         </div>
-    <form method="post">
-      <div class="info">
-        <label for="mastery">niveau de maitrise recherché.</label>
-        <select id="mastery" name="mastery">
-        <option value="">  </option>
-            {% for mastery in masteries %}
-            <option value="{{ mastery.id }}">{{ mastery.level }}</option>
-            {% endfor %}
-        </select>
-      </div>
-      <div class="instrement">
-      {% for instrument in instruments %}
-      <label for="instrument">Votre instruments</label>
-      <select id="instrument">
-      <option value="{{ instrument.id }}">{{ instrument.name }}</option>
-      {% endfor %}
-        </select>
-      </div>
-      <div class="ajouter">
-        <a href="/instrument/add/{{ musician.id}}">Ajouter un instrument</a>
-      </div>
-      <input type="submit" value="Valider">
-    </form>
-
-
-
-</body>
-
-{% endblock %}
+    </footer>
+  </div>
