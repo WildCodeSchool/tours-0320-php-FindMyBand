@@ -48,6 +48,11 @@
         <a href="/instrument/add/{{ musician.id}}">Ajouter un instrument</a>
       </div>
       <input type="submit" value="Valider">
+         <label for="annonce">Ajouter une annonce pour trouver le meilleur musician </label>
+      <select id="instrument">
+      <option value="{{ instrument.id }}">{{ instrument.name }}</option>
+      {% endfor %}
+        </select>
     </form>
 
 
