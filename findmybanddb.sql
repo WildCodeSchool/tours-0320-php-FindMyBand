@@ -10,7 +10,7 @@
 CREATE TABLE `group` (
     `id` int AUTO_INCREMENT NOT NULL ,
     `name` varchar(255)  NOT NULL ,
-    `email` varchar(255)  NOT NULL ,
+    `email` varchar(255)  NOT NULL UNIQUE ,
     `description` TEXT  NOT NULL ,
     `password` varchar(255)   NOT NULL ,
     `city_id` int  NOT NULL ,
@@ -23,7 +23,7 @@ CREATE TABLE `musician` (
     `id` int AUTO_INCREMENT NOT NULL ,
     `pseudo` varchar(200)  NOT NULL ,
     `password` varchar(255)   NOT NULL ,
-    `email` varchar(255)  NOT NULL ,
+    `email` varchar(255)  NOT NULL UNIQUE ,
     `description` TEXT  NULL ,
     `city_id` int  NOT NULL ,
     PRIMARY KEY (
@@ -56,11 +56,14 @@ CREATE TABLE `instrument` (
 );
 
 CREATE TABLE `instrument_played` (
+     `id` int AUTO_INCREMENT NOT NULL ,
     `instrument_id` int  NOT NULL ,
     `musician_id` int  NOT NULL ,
     `mastery_levels_id` int  NOT NULL 
+    PRIMARY KEY (
+        `id`
+    )
 );
-
 CREATE TABLE `search` (
     `id` int AUTO_INCREMENT NOT NULL ,
     `instrument_id` int  NOT NULL ,
