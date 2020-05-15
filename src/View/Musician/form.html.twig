@@ -1,47 +1,100 @@
 {% extends 'layout.html.twig' %}
 {% block stylesheet %}
-<link rel="stylesheet" href="../assets/css/formmusician.css">
+<link rel="stylesheet" href="../assets/css/style.css">
   <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
-     
  {% endblock %}
- {% block content %}
-<body class="formm">
-<form method="post">
-    {% if musician.errorMessages.pseudo is not empty %}
-        <p> {{ musician.errorMessages.pseudo }} </p>
-        {% endif %}
-    <label for ="pseudo">pseudo</label>
-    <input id="pseudo" type="text" name="pseudo" value="{{ musician.pseudo }}">
-  
-     {% if musician.errorMessages.email is not empty %}
-        <p> {{ musician.errorMessages.email }} </p>
-        {% endif %}
-    <label for="email">Votre adresse mail</label>
-    <input id="email" type="email" name="email" value="{{ musician.email }}">
-  
-  {% if musician.errorMessages.password is not empty %}
-        <p> {{ musician.errorMessages.password}} </p>
-        {% endif %}
+
+{% block content %}
    
-    <label for="password">Votre mot de passe</label>
-    <input id="password" type="password" name="password" value "{{ musician.password }}">
-   
-    <label for="description">Votre description</label>
-    <textarea id="description" row='5' cols='10' name="description" value "{{ musician.description }}">
-    </textarea>
-   
-     {% if musician.errorMessages.city is not empty %}
-        <p> {{ musician.errorMessages.city}} </p>
-        {% endif %}
-    <label for="city"> choisissez votre ville</label>
-    <select id="city" name="city">
-     <option value="">  </option>
-    {% for city in cities %}
-        <option value="{{ city.id }}">{{ city.name }}</option>
-    {% endfor %}
-    </select>
-   
-    <input type="submit" value="Valider">
-</form>
-</div>
-{% endblock %}
+
+
+<body class="body">
+
+
+        <div class="container-fluid annonces">
+
+            <form action ="" method="post">
+            
+                <div class="row row-cols-1 row-cols-md-4">
+                    <div class="col mb-4">
+                        <div class="card text-white bg-dark mb-3">
+                            <div class="card-header text-center">Inscription</div>
+                                <div class="card-body text-center">
+                                     {% if musician.errorMessages.pseudo is not empty %}
+                                     <p> {{ musician.errorMessages.pseudo }} </p>
+                                     {% endif %}
+                                         <label for ="pseudo">Votre pseudo</label>
+                                             <input id="pseudo" type="text" name="pseudo" value="{{ musician.pseudo }}"><br />
+                        
+
+
+                                     {% if musician.errorMessages.email is not empty %}
+                                     <p> {{ musician.errorMessages.email }} </p>
+                                     {% endif %}
+                                         <label for="email">Votre adresse mail</label>
+                                             <input id="email" type="email" name="email" value="{{ musician.email }}"><br />
+                    
+
+                                     {% if musician.errorMessages.password is not empty %}
+                                     <p> {{ musician.errorMessages.password}} </p>
+                                     {% endif %}
+                                         <label for="password">Votre mot de passe</label>
+                                             <input id="password" type="password" name="password" value "{{ musician.password }}"><br />
+                                
+                        
+                                         <label for="description">Votre description</label>
+                                             <textarea id="description" row='10' cols='25' name="description" value "{{ musician.description }}"></textarea><br />
+                                            
+
+
+                                     {% if musician.errorMessages.city is not empty %}
+                                     <p> {{ musician.errorMessages.city}} </p>
+                                     {% endif %}
+                                        <label for="city"> Indiquez votre ville</label>
+                                             <select id="city" name="city"><br />
+                                                 <option value="">  </option>
+
+
+                                     {% for city in cities %}
+                                     <option value="{{ city.id }}">{{ city.name }}</option><br />
+                                     {% endfor %}
+                                     </select>
+
+                                         <input type="submit" value="Valider">
+
+                
+             </form>
+                                </div>
+                             </div>
+                        </div>
+                    </div>
+                 </div>
+             </div>
+
+    <div class="container-fluid txt">
+        <p> FIND MY BAND est un site totalement GRATUIT<p>
+        <p> Facile et rapide, remplissez votre profil
+    </div>
+
+
+
+        <!--footer-->
+        <div class="footer">
+        <footer>
+            <div class="card text-center text-white bg-dark mb-3">
+                <div class="card-header">
+                Find My Band
+                </div>
+                <div class="card-body">
+                <p class="card-text">FAQ</p>
+                <p class="card-text">Mentions légales</p>
+                <p class="card-text">Conditions d'utilisations</p>
+                <a href="../Contact/index" class="btn btn-primary">Contactez nous</a>
+                </div>
+            </div>
+        </footer>
+        </div>
+
+
+            </body>
+            {% endblock %}
