@@ -66,7 +66,11 @@ class GroupController extends AbstractController
             $masteries=$masteryManager->selectAll();
             header('Location:/group/profil/'.$_SESSION['user_id']);
             return $this->twig->render(
-            'Group/profil.html.twig', ['group' => $group,"masteries"=>$masteries,'instruments' => $instruments]);
+                'Group/profil.html.twig',
+                ['group' => $group,
+                "masteries"=>$masteries,
+                'instruments' => $instruments]
+            );
         }
         return $this->twig->render('Group/login.html.twig');
     }
@@ -109,7 +113,7 @@ class GroupController extends AbstractController
     }
 
     public function profil(int $id)
-    {   
+    {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // Validating the Mastery is a positive number
             // Validating the instrument is a positive number
@@ -127,18 +131,15 @@ class GroupController extends AbstractController
                 ) !== false
                 ) {
                 $masteryId=$_POST['mastery'];
-                $instrumentId=$_POST['instrument'];
-                // Validating if the mastery exists in the database
-                if (!empty($masteryId)&&!empty($instrumentId)&& !empty($id)) {
-                       $searchManager = new SearchManager();
-                       if (isset($_POST['description'])) {
-                           $description=$_POST['description'];
-                       }
-                    $idd=$searchManager->insert($instrumentId, $id, $masteryId);
+                $instrumentId=$_POST['$instrumentId'];
+                $searchManager = new SearchManager();
+                $searchManager->insert($instrumentId, $id, $masteryId);
                     \header("location:");
-                }
+                    return" ";
             }
         }
+      
+
         $instrumentManager = new InstrumentManager();
         $instruments = $instrumentManager->selectAll();
         $groupManager = new GroupManager();
@@ -146,6 +147,10 @@ class GroupController extends AbstractController
         $masteryManager= new MasteryLevelManager();
         $masteries=$masteryManager->selectAll();
         return $this->twig->render(
-        'Group/profil.html.twig', ["group"=>$group, "masteries" => $masteries, 'instruments' => $instruments]);
+            'Group/profil.html.twig',
+            ["group"=>$group,
+            "masteries" => $masteries,
+            'instruments' => $instruments]
+        );
     }
 }
