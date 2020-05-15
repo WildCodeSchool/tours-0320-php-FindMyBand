@@ -29,18 +29,21 @@ class HomeController extends AbstractController
         $searchManager = new SearchManager();
         $search=$searchManager->allannonce();
        
-        $i= $search[21]['instrument_id'];
-        $g=$search[21]['group_id'];
-        $m=$search[21]['mastery_levels_id'];
+        $ins= $search[21]['instrument_id'];
+        $gro=$search[21]['group_id'];
+        $mas=$search[21]['mastery_levels_id'];
         $instrumentManager = new InstrumentManager();
-        $instrument = $instrumentManager->selectOneById($i);
+        $instrument = $instrumentManager->selectOneById($ins);
         $masteryManager= new MasteryLevelManager();
-        $masterie=$masteryManager->selectOneById($m);
+        $masterie=$masteryManager->selectOneById($mas);
         $groupManager = new GroupManager();
-        $group = $groupManager->selectOneById($g);
+        $group = $groupManager->selectOneById($gro);
         return $this->twig->render(
-            'Home/index.html.twig', [
-            "instrument"=>$instrument, "masterie"=>$masterie, "group"=>$group]);
-    
+            'Home/index.html.twig',
+            [
+            "instrument"=>$instrument,
+            "masterie"=>$masterie,
+            "group"=>$group]
+        );
     }
 }
