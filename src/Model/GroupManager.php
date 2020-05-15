@@ -13,7 +13,6 @@ class GroupManager extends AbstractManager
     {
         parent::__construct(self::TABLE);
     }
-
     public function insert(GroupForm $group): int
     {
         $statement=$this->pdo->prepare(
