@@ -8,18 +8,12 @@
    
     <body class="body">
 
-   
-   
      <!-- Navbar -->
 <nav class="navbar sticky-top navbar-dark bg-dark">
-  <span class="navbar-brand mb-0 h1">Find my Band </span>
-    <ul class="nav nav-pills justify-content-end">
-      <li class="nav-item">
-        <a class="nav-link active" href="Inscription/index">Inscription</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link active" href="Musician/index">Connexion</a>
-      </li>
+<a class="flex-sm-fill text-sm-center nav-link disabled" href="#" tabindex="-1" aria-disabled="true">FIND MY BAND</a>
+  <a class="flex-sm-fill text-sm-center nav-link" href="../Home/index">Accueil</a>
+  <a class="flex-sm-fill text-sm-center nav-link" href="/Inscription/index">Inscription</a>
+  <a class="flex-sm-fill text-sm-center nav-link" href="/Connexion/index">Connexion</a>
 </nav>
 
  <!--Photo-->
@@ -38,13 +32,10 @@
     <div class="container">
       <div class="row">
         <div class="col-6 offset-4">
-          <button type="button" class="btn btn-danger">INSCRIVEZ VOUS GRATUITEMENT</button>
+          <a href="Inscription/index" class="btn btn-danger">INSCRIVEZ VOUS GRATUITEMENT</button></a>
         </div>
       </div>
     </div>
-
-
-
 
 <!--annonces-->
 <div class=" container-fluid annonces">
@@ -53,8 +44,10 @@
       <div class="card text-white bg-dark mb-3">
         <div class="card-header">Nouvelle annonce</div>
         <div class="card-body">
-          <h5 class="card-title">NOM DU GROUPE</h5>
-          <p class="card-text">Ici la description de l'annonce.Ici la description de l'annonce.Ici la description de l'annonce.</p>
+          <h2 class="card-title">Group: {{ group.name }}</h2>
+          <p class="card-text">Cherch:</p>
+          <p class="card-text">Instrument: {{ instrument.name }}.</p>
+           <p class="card-text">Niveau de Maitrise: {{ masterie.level }}.</p>
         </div>
       </div>
     </div>
@@ -92,6 +85,7 @@
 </div>
 
 <!--footer-->
+<div class="footer">
   <footer>
       <div class="card text-center text-white bg-dark mb-3">
         <div class="card-header">
@@ -101,13 +95,11 @@
           <p class="card-text">FAQ</p>
           <p class="card-text">Mentions légales</p>
           <p class="card-text">Conditions d'utilisations</p>
-          <a href="#" class="btn btn-primary">Contactez nous</a>
+          <a href="/Contact/index" class="btn btn-primary">Contactez nous</a>
         </div>
       </div>
   </footer>
-
-
-
+</div>
 </div>
 </div>
 

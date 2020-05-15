@@ -1,32 +1,52 @@
 {% extends 'layout.html.twig' %}
 {% block stylesheet %}
-<link rel="stylesheet" href="../assets/css/inscription.css">
-  <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
-     
- {% endblock %}
-{% block content %}
-<body class="inscription">
-  <div class="ins">
-    <h1> Se connecter à votre espace personnel</h1>
+<link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/bootstrap.min.css"> 
+  {% endblock %}
+{% block content %}    
+<body class="body">
+<nav class="navbar sticky-top navbar-dark bg-dark">
+<a class="flex-sm-fill text-sm-center nav-link disabled" href="#" tabindex="-1" aria-disabled="true">FIND MY BAND</a>
+  <a class="flex-sm-fill text-sm-center nav-link" href="/Home/index">Accueil</a>
+
+</nav>
+<div class="container-fluid header-ctn">
+    <h1> Création de votre espace</h1>
     <h2>Vous êtes?</h2>
+</div>
 
-      <div class="container justify-content-centre">
-        <div class="row">
-          <div class="col-6 ">
-             <p class ="item">  <a href="/Group/login">  Group !</a></p>
-           </div>
-          <div class="col-6">
-            <p class ="item"><a href="/Musician/login">  Musicien! </a></p>
-             </div>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col mb-4">
+          <a href="/group/login" class="btn btn-danger">Groupe</button></a>
         </div>
+      </div>
+    
+    
+      <div class="row">
+        <div class="col mb-4">
+          <a href="/musician/login" class="btn btn-danger">Musicien</button></a>
         </div>
-   </div>
-
-
-
- </body>
+      </div>
+    </div>
     
 
 
+<div class="footer">
+  <footer>
+      <div class="card text-center text-white bg-dark mb-3">
+        <div class="card-header">
+          Find My Band
+        </div>
+        <div class="card-body">
+          <p class="card-text">FAQ</p>
+          <p class="card-text">Mentions légales</p>
+          <p class="card-text">Conditions d utilisations</p>
+          <a href="../Contact/index" class="btn btn-primary">Contactez nous</a>
+        </div>
+      </div>
+  </footer>
+
+</body>
 <link rel="stylesheet" href="../assets/js/bootstrap.min.js">
 {% endblock %}
