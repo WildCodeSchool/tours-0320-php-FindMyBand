@@ -17,10 +17,7 @@ use App\Model\InstrumentPlayedManager;
 
 class MusicianController extends AbstractController
 {
-    public function index()
-    {
-        return $this->twig->render('Connexion/index.html.twig');
-    }
+
     public function logout()
     {
         session_start();
@@ -68,7 +65,13 @@ class MusicianController extends AbstractController
                 'email' => $_SESSION['user_email'],
                  ];
             // 5. Rediriger l'utilisateur vers la page de profil
-            return $this->twig->render('Musician/profil.html.twig', ['musician' => $musician]);
+            $instrumentManager = new InstrumentManager();
+            $instruments = $instrumentManager->selectAll();
+            $masteryManager= new MasteryLevelManager();
+            $masteries=$masteryManager->selectAll();
+            header('Location:/musician/profil/'.$_SESSION['user_id']);
+            return $this->twig->render(
+                'Musician/profil.html.twig', ['musician' => $musician,"masteries"=>$masteries,'instruments' => $instruments]);
         }
         return $this->twig->render('Musician/login.html.twig');
     }
