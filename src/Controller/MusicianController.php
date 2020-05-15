@@ -71,7 +71,12 @@ class MusicianController extends AbstractController
             $masteries=$masteryManager->selectAll();
             header('Location:/musician/profil/'.$_SESSION['user_id']);
             return $this->twig->render(
-                'Musician/profil.html.twig', ['musician' => $musician,"masteries"=>$masteries,'instruments' => $instruments]);
+                'Musician/profil.html.twig',
+                ['
+                musician' => $musician,
+                "masteries"=>$masteries,
+                'instruments' => $instruments]
+            );
         }
         return $this->twig->render('Musician/login.html.twig');
     }
