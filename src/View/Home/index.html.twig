@@ -13,7 +13,7 @@
 <a class="flex-sm-fill text-sm-center nav-link disabled" href="#" tabindex="-1" aria-disabled="true">FIND MY BAND</a>
   <a class="flex-sm-fill text-sm-center nav-link" href="../Home/index">Accueil</a>
   <a class="flex-sm-fill text-sm-center nav-link" href="/Inscription/index">Inscription</a>
-  <a class="flex-sm-fill text-sm-center nav-link" href="/Musician/index">Connexion</a>
+  <a class="flex-sm-fill text-sm-center nav-link" href="/Connexion/index">Connexion</a>
 </nav>
 
  <!--Photo-->
@@ -32,7 +32,7 @@
     <div class="container">
       <div class="row">
         <div class="col-6 offset-4">
-          <a href="../Musician/add" class="btn btn-danger">INSCRIVEZ VOUS GRATUITEMENT</button></a>
+          <a href="Inscription/index" class="btn btn-danger">INSCRIVEZ VOUS GRATUITEMENT</button></a>
         </div>
       </div>
     </div>
@@ -44,8 +44,10 @@
       <div class="card text-white bg-dark mb-3">
         <div class="card-header">Nouvelle annonce</div>
         <div class="card-body">
-          <h5 class="card-title">NOM DU GROUPE</h5>
-          <p class="card-text">Ici la description de l'annonce.Ici la description de l'annonce.Ici la description de l'annonce.</p>
+          <h2 class="card-title">Group: {{ group.name }}</h2>
+          <p class="card-text">Cherch:</p>
+          <p class="card-text">Instrument: {{ instrument.name }}.</p>
+           <p class="card-text">Niveau de Maitrise: {{ masterie.level }}.</p>
         </div>
       </div>
     </div>
@@ -93,7 +95,7 @@
           <p class="card-text">FAQ</p>
           <p class="card-text">Mentions légales</p>
           <p class="card-text">Conditions d'utilisations</p>
-          <a href="../Contact/index" class="btn btn-primary">Contactez nous</a>
+          <a href="/Contact/index" class="btn btn-primary">Contactez nous</a>
         </div>
       </div>
   </footer>

@@ -11,10 +11,8 @@
 
   <!-- Navbar -->
   <nav class="navbar sticky-top navbar-dark bg-dark">
-    <a class="flex-sm-fill text-sm-center nav-link disabled" href="#" tabindex="-1" aria-disabled="true">FIND MY BAND</a>
-    <a class="flex-sm-fill text-sm-center nav-link" href="../Home/index">Accueil</a>
-    <a class="flex-sm-fill text-sm-center nav-link" href="../Group/add">Inscription</a>
-    <a class="flex-sm-fill text-sm-center nav-link" href="#">Connexion</a>
+    <a class="flex-sm-fill text-sm-center nav-link disabled" href="/Home/index" tabindex="-1" aria-disabled="true">FIND MY BAND</a>
+    <a class="flex-sm-fill text-sm-center nav-link" href="/Home/index">Accueil</a>
   </nav>
 
    <!--Photo-->
@@ -38,17 +36,16 @@
 
 <div class="form_profil">
   <form method="post">
-    
+     <h4> Ajouter une annonce pour trouver les meuilleurs musiciens choisisez
+      le musicien par son instrument et niveau de maitrise ! </h4>
       <label for="mastery">Niveau de maitrise souhaité</label>
       <select id="mastery" name="mastery">
-      <option value="">  </option>
           {% for mastery in masteries %}
           <option value="{{ mastery.id }}">{{ mastery.level }}</option>
           {% endfor %}
       </select>
       <label for="instrument">Instrument souhaité</label>
       <select id="instrument" name="instrument">
-      <option value="">  </option>
         {% for instrument in instruments %}
         <option value="{{ instrument.id }}">{{ instrument.name }}</option>
         {% endfor %}
@@ -59,7 +56,8 @@
 </div>
 
   <div class="ajout_profil">
-    <a href="/instrument/add/{{ musician.id }}">Ajouter un instrument</a>
+    <a href="/instrument/add/{{ group.id }}">Ajouter un instrument</a>
+    <a href="/group/logout">Logout</a>
   </div>
  
 
@@ -79,3 +77,4 @@
         </div>
     </footer>
   </div>
+{% endblock %}
