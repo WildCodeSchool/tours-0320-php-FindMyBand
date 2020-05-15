@@ -8,6 +8,11 @@
 
 namespace App\Controller;
 
+use App\Model\SearchManager;
+use App\Model\MasteryLevelManager;
+use App\Model\InstrumentManager;
+use App\Model\GroupManager;
+
 class HomeController extends AbstractController
 {
 
@@ -21,6 +26,21 @@ class HomeController extends AbstractController
      */
     public function index()
     {
-        return $this->twig->render('Home/index.html.twig');
+        $searchManager = new SearchManager();
+        $search=$searchManager->allannonce();
+       
+        $i= $search[21]['instrument_id'];
+        $g=$search[21]['group_id'];
+        $m=$search[21]['mastery_levels_id'];
+        $instrumentManager = new InstrumentManager();
+        $instrument = $instrumentManager->selectOneById($i);
+        $masteryManager= new MasteryLevelManager();
+        $masterie=$masteryManager->selectOneById($m);
+        $groupManager = new GroupManager();
+        $group = $groupManager->selectOneById($g);
+        return $this->twig->render(
+            'Home/index.html.twig', [
+            "instrument"=>$instrument, "masterie"=>$masterie, "group"=>$group]);
+    
     }
 }
